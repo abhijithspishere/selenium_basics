@@ -85,7 +85,7 @@ WebElement Sweden = driver.findElement(By.xpath("//div[@id='box102']"));
 action.dragAndDrop(Stockholm,Sweden).perform();
 
 
-// driver.quit();
+driver.quit();
 
 
 }
