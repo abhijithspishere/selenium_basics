@@ -37,14 +37,14 @@ public class Frames {
 
         driver.switchTo().defaultContent();
 
-        //inner frame
+       
         WebElement frame3 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//frame[@src='frame_3.html']")));
         driver.switchTo().frame(frame3);
         System.out.println("reached frame3");
 
       /*   WebElement checkBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='mytext3']")));
         checkBox.sendKeys("hi"); */
- 
+        //inner frame
         driver.switchTo().frame(0);
         System.out.println("reached innerframe");
         WebElement checkBox = driver.findElement(By.xpath("//div[@class='AB7Lab Id5V1']"));
