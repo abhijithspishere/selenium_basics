@@ -1,5 +1,6 @@
 package com.qa.selenium;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -64,6 +65,40 @@ public class TaskAmazon {
                 ((JavascriptExecutor)driver).executeScript("arguments[0].click();", eachButton);
                 break;
             }
+
+        break;
+
+            /* WebElement ancestor = driver.findElement
+            (By.xpath("//div[@class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1']//div[@class='puis-atcb-container/following-sibling::strong']"));
+            System.out.println(ancestor.getText()); */
+
+            
+
+            
         }
+
+        Thread.sleep(10);
+        WebElement cart = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@id='nav-cart-count']")));
+        cart.click();
+
+      /*   WebElement cartNumber = driver.findElement(By.xpath("//span[@id='nav-cart-count']"));
+        cartNumber.click(); */
+
+       /*  WebElement cartMessage = driver.findElement(By.xpath("//strong[@class='a-size-small']"));
+            String cartM = cartMessage.getText();
+            System.out.println(cartM); */
+            
+       /*  Alert alert = driver.switchTo().alert();
+            String cartConfirmMessage = alert.getText();
+            System.out.println(cartConfirmMessage);
+            if (cartConfirmMessage.equalsIgnoreCase("Item Added")) {
+                System.out.println("Product Added to Cart Successfully");
+            }
+            else {
+                System.out.println("Error in Adding the product to cart");
+            } */
+        // driver.quit();
     }
+
+    
 }
