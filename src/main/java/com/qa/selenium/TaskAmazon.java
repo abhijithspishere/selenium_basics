@@ -63,9 +63,14 @@ public class TaskAmazon {
 
         }
 
-        Thread.sleep(500);
-        WebElement cart = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@id='nav-cart-count']")));
+        Thread.sleep(1000);
+        /* WebElement cart = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@id='nav-cart-count']")));
         cart.click();
+ */
+        WebElement cartElement = 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@id='nav-cart-count']")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",cartElement);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", cartElement);
 
         WebElement cartQuantity = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='a-dropdown-prompt']")));
         String cartString = cartQuantity.getText();
@@ -75,7 +80,7 @@ public class TaskAmazon {
         } else {
             System.out.println("Cart not added");
         }
-
+        // driver.quit();
     }
 }
       /*   WebElement cartNumber = driver.findElement(By.xpath("//span[@id='nav-cart-count']"));
@@ -98,7 +103,7 @@ public class TaskAmazon {
             else {
                 System.out.println("Error in Adding the product to cart");
             } */
-        // driver.quit();
+        // 
     
 
     
