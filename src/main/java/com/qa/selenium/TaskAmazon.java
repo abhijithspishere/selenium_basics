@@ -1,6 +1,4 @@
 package com.qa.selenium;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TaskAmazon {
@@ -27,15 +24,11 @@ public class TaskAmazon {
         menuBar.click();
         // System.out.println("click1");
 
-        // Thread.sleep(10);
-
         WebElement menuComputer = 
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[normalize-space()='Mobiles, Computers']")));
         menuComputer.click();
         // System.out.println("click2");
-       
-        
-        /* WebElement menuLaptop =
+       /* WebElement menuLaptop =
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Laptops')]")));
         menuLaptop.click(); */
 
@@ -68,21 +61,29 @@ public class TaskAmazon {
 
         break;
 
-            /* WebElement ancestor = driver.findElement
-            (By.xpath("//div[@class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1']//div[@class='puis-atcb-container/following-sibling::strong']"));
-            System.out.println(ancestor.getText()); */
-
-            
-
-            
         }
 
-        Thread.sleep(10);
+        Thread.sleep(500);
         WebElement cart = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@id='nav-cart-count']")));
         cart.click();
 
+        WebElement cartQuantity = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='a-dropdown-prompt']")));
+        String cartString = cartQuantity.getText();
+        int cartQuantityNum = Integer.parseInt(cartString);
+        if (cartQuantityNum>0) {
+            System.out.println("Cart Added Successfully");
+        } else {
+            System.out.println("Cart not added");
+        }
+
+    }
+}
       /*   WebElement cartNumber = driver.findElement(By.xpath("//span[@id='nav-cart-count']"));
         cartNumber.click(); */
+
+           /* WebElement ancestor = driver.findElement
+            (By.xpath("//div[@class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1']//div[@class='puis-atcb-container/following-sibling::strong']"));
+            System.out.println(ancestor.getText()); */
 
        /*  WebElement cartMessage = driver.findElement(By.xpath("//strong[@class='a-size-small']"));
             String cartM = cartMessage.getText();
@@ -98,7 +99,7 @@ public class TaskAmazon {
                 System.out.println("Error in Adding the product to cart");
             } */
         // driver.quit();
-    }
+    
 
     
-}
+
